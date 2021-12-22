@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "aws-stack-set-snapshot"
+version = "0.1.0"
+description = ""
+authors = ["Iain Samuel McLean Elder <iain@isme.es>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+boto3 = "^1.20.26"
+boto-collator-client = "^0.1.1"
+
+[tool.poetry.dev-dependencies]
+ipython = "^7.30.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

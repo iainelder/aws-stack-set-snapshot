@@ -8,6 +8,9 @@ authors = ["Iain Samuel McLean Elder <iain@isme.es>"]
 python = "^3.8"
 boto3 = "^1.20.26"
 boto-collator-client = "^0.1.1"
+ratemate = "^0.1.0"
+pyrate-limiter = "^2.6.0"
+logdecorator = "^2.4"
 
 [tool.poetry.dev-dependencies]
 ipython = "^7.30.1"

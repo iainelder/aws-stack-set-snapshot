@@ -126,6 +126,14 @@ optional = false
 python-versions = ">=2.6, !=3.0.*, !=3.1.*, !=3.2.*"
 
 [[package]]
+name = "logdecorator"
+version = "2.4"
+description = "Move logging code out of your business logic with decorators"
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
 name = "matplotlib-inline"
 version = "0.1.3"
 description = "Inline Matplotlib backend for Jupyter"
@@ -195,6 +203,14 @@ optional = false
 python-versions = ">=3.5"
 
 [[package]]
+name = "pyrate-limiter"
+version = "2.6.0"
+description = "Python Rate-Limiter using Leaky-Bucket Algorimth Family"
+category = "main"
+optional = false
+python-versions = ">=3.6.2,<4.0.0"
+
+[[package]]
 name = "python-dateutil"
 version = "2.8.2"
 description = "Extensions to the standard Python datetime module"
@@ -204,6 +220,14 @@ python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,>=2.7"
 
 [package.dependencies]
 six = ">=1.5"
+
+[[package]]
+name = "ratemate"
+version = "0.1.0"
+description = "A python rate limiter module with multi-process support and a simple, intuitive API"
+category = "main"
+optional = false
+python-versions = ">=3.7"
 
 [[package]]
 name = "s3transfer"
@@ -262,7 +286,7 @@ python-versions = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "c15b06310e47fd81d80c50df7dfc1ee888e27c67d3da00c991b3962f90023c34"
+content-hash = "adf79fc57233e03156ac9d7041ae6e9cb13680218f29669ca89d5dc8609808c7"
 
 [metadata.files]
 appnope = [
@@ -305,6 +329,10 @@ jmespath = [
     {file = "jmespath-0.10.0-py2.py3-none-any.whl", hash = "sha256:cdf6525904cc597730141d61b36f2e4b8ecc257c420fa2f4549bac2c2d0cb72f"},
     {file = "jmespath-0.10.0.tar.gz", hash = "sha256:b85d0567b8666149a93172712e68920734333c0ce7e89b78b3e987f71e5ed4f9"},
 ]
+logdecorator = [
+    {file = "logdecorator-2.4-py3-none-any.whl", hash = "sha256:34bf769dafaf8b53a94484036b401b651f50fca830e03a93837a68d7180afd55"},
+    {file = "logdecorator-2.4.tar.gz", hash = "sha256:7735260e579c50af5f3aee4ee75dab886ae427b1960eb805d8eafe84b75c41b6"},
+]
 matplotlib-inline = [
     {file = "matplotlib-inline-0.1.3.tar.gz", hash = "sha256:a04bfba22e0d1395479f866853ec1ee28eea1485c1d69a6faf00dc3e24ff34ee"},
     {file = "matplotlib_inline-0.1.3-py3-none-any.whl", hash = "sha256:aed605ba3b72462d64d475a21a9296f400a19c4f74a31b59103d2a99ffd5aa5c"},
@@ -333,9 +361,16 @@ pygments = [
     {file = "Pygments-2.10.0-py3-none-any.whl", hash = "sha256:b8e67fe6af78f492b3c4b3e2970c0624cbf08beb1e493b2c99b9fa1b67a20380"},
     {file = "Pygments-2.10.0.tar.gz", hash = "sha256:f398865f7eb6874156579fdf36bc840a03cab64d1cde9e93d68f46a425ec52c6"},
 ]
+pyrate-limiter = [
+    {file = "pyrate-limiter-2.6.0.tar.gz", hash = "sha256:0fa186ee8ad84e8af73a264d416b3682a8dc39e0c58c3e27cf7850617269128b"},
+]
 python-dateutil = [
     {file = "python-dateutil-2.8.2.tar.gz", hash = "sha256:0123cacc1627ae19ddf3c27a5de5bd67ee4586fbdd6440d9748f8abb483d3e86"},
     {file = "python_dateutil-2.8.2-py2.py3-none-any.whl", hash = "sha256:961d03dc3453ebbc59dbdea9e4e11c5651520a876d0f4db161e8674aae935da9"},
+]
+ratemate = [
+    {file = "ratemate-0.1.0-py3-none-any.whl", hash = "sha256:5660bfced1a39682fa98103ed4103d46c237e4064256dfde2f29a9e58549d59e"},
+    {file = "ratemate-0.1.0.tar.gz", hash = "sha256:681e36441152f100480ec5e3223ea1a18335094a55abe36e952fa067bfd63352"},
 ]
 s3transfer = [
     {file = "s3transfer-0.5.0-py3-none-any.whl", hash = "sha256:9c1dc369814391a6bda20ebbf4b70a0f34630592c9aa520856bf384916af2803"},

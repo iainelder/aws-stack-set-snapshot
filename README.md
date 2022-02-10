@@ -72,7 +72,7 @@ map(select(.Status == "ACTIVE"))
 | less
 ```
 
-Show the target regions and organizationl units.
+Show the target regions and organizational units.
 
 ```bash
 cat stack_sets.json \

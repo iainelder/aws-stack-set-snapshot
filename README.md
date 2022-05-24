@@ -121,6 +121,8 @@ Transform the JSON into a dimensional model with these dimensions (not exhaustiv
 
 Returns the Summaries list of ListStackSets and adds extra keys to each stack set description.
 
+Merges the complete description into each summary result given by DescribeStackSet.
+
 The Instance key is populated for each stack set by the Summaries list of ListStackInstances.
 
 The Operations key is populated for each stack set by the Summaries list of the ListStackSetOperations.

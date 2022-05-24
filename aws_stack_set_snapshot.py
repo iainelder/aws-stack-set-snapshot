@@ -26,7 +26,7 @@ def main():
         future_to_stack_set = {
             executor.submit(f, cfn, s): s
             for s in stack_sets
-            for f in (list_instances, list_operations)
+            for f in (list_instances, list_operations, describe_stack_set)
         }
     
     for f in fut.as_completed(future_to_stack_set):
@@ -69,6 +69,11 @@ def list_instances(cfn, stack_set):
 def list_operations(cfn, stack_set):
     operations = cfn.list_stack_set_operations(StackSetName=stack_set["StackSetId"])["Summaries"]
     return {"Operations": operations}
+
+
+def describe_stack_set(cfn, stack_set):
+    description = cfn.describe_stack_set(StackSetName=stack_set["StackSetId"])["StackSet"]
+    return description
 
 
 def dump_snapshot_to_json(snapshot):

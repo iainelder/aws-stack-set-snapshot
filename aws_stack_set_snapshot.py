@@ -1,17 +1,18 @@
 import boto3
 import botocore.config
-from boto_collator_client import CollatorClient
+from boto_collator_client import CollatorClient  # type: ignore[import]
 import json
 import sys
 import concurrent.futures as fut
 import logging
 import datetime
+from typing import Any
 
 # TODO make this work for logdecorator
 # logger = logging.getLogger(__name__)
 # logger.setLevel(logging.DEBUG)
 
-def main():
+def main() -> None:
     session = boto3.Session()
     cfn = configure_client(session)
     
@@ -31,14 +32,14 @@ def main():
     dump_snapshot_to_json(stack_sets)
 
 
-def configure_client(session):
+def configure_client(session: boto3.Session) -> CollatorClient:
 
     class RetryFilter(logging.Filter):
 
-        def filter(self, record):
+        def filter(self, record: logging.LogRecord) -> bool:
             if record.msg == "No retry needed.":
-                return 0
-            return 1
+                return False
+            return True
 
     boto3.set_stream_logger("botocore.retryhandler", logging.DEBUG)
     logging.getLogger("botocore.retryhandler").addFilter(RetryFilter())
@@ -56,26 +57,26 @@ def configure_client(session):
 #     logging.INFO,
 #     message="""Instances for stack set {stack_set["StackSetName"]}""",
 #     logger=logger)
-def list_instances(cfn, stack_set):
+def list_instances(cfn: CollatorClient, stack_set: Any) -> Any:
     instances = cfn.list_stack_instances(StackSetName=stack_set["StackSetId"])["Summaries"]
     return {"Instances": instances}
 
 
-def list_operations(cfn, stack_set):
+def list_operations(cfn: CollatorClient, stack_set: Any) -> Any:
     operations = cfn.list_stack_set_operations(StackSetName=stack_set["StackSetId"])["Summaries"]
     return {"Operations": operations}
 
 
-def describe_stack_set(cfn, stack_set):
+def describe_stack_set(cfn: CollatorClient, stack_set: Any) -> Any:
     description = cfn.describe_stack_set(StackSetName=stack_set["StackSetId"])["StackSet"]
     return description
 
 
-def dump_snapshot_to_json(snapshot):
+def dump_snapshot_to_json(snapshot: Any) -> Any:
 
     class DateEncoder(json.JSONEncoder):
         
-        def default(self, obj):
+        def default(self, obj: Any) -> Any:
             if isinstance(obj, datetime.datetime):
                 return obj.isoformat()
             return json.JSONEncoder.default(self, obj)

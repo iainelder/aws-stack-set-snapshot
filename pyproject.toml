@@ -11,6 +11,9 @@ boto-collator-client = "^0.1.1"
 ratemate = "^0.1.0"
 pyrate-limiter = "^2.6.0"
 logdecorator = "^2.4"
+mypy-boto3-cloudformation = "^1.25.4"
+mypy = "^0.982"
+boto3-stubs = "^1.25.4"
 
 [tool.poetry.dev-dependencies]
 ipython = "^7.30.1"

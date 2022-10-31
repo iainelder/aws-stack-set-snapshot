@@ -1,16 +1,11 @@
 import boto3
 import botocore.config
 from boto_collator_client import CollatorClient
-from pprint import pprint
 import json
 import sys
 import concurrent.futures as fut
-import threading
 import logging
-import pyrate_limiter as lim
-import ratemate
 import datetime
-import logdecorator as ld
 
 # TODO make this work for logdecorator
 # logger = logging.getLogger(__name__)

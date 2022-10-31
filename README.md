@@ -6,6 +6,8 @@ This allows you to compute statistics across all stack instances, such as total 
 
 ## Quick Start
 
+Run the tool in the organization management account.
+
 Dump a snapshot.
 
 ```bash
@@ -21,6 +23,12 @@ cat stack_sets.json \
 | csvlook --no-inference \
 | less
 ```
+
+Columns:
+
+* StackSetName
+* Status
+* Instances
 
 Show the result of the latest operation.
 
@@ -42,6 +50,14 @@ map({
 | csvlook --no-inference \
 | less
 ```
+
+Columns:
+
+* StackSetName
+* Status
+* LastOperation/Status
+* LastOperation/CreationTimestamp
+* LastOperation/EndTimestamp
 
 Compute the aggregate status of all the instances.
 
@@ -72,6 +88,17 @@ map(select(.Status == "ACTIVE"))
 | less
 ```
 
+Columns:
+
+* StackSetName
+* CURRENT_RATIO
+* TOTAL
+* CURRENT_SUCCEEDED
+* OUTDATED_FAILED
+* OUTDATED_CANCELLED
+* INOPERABLE_INOPERABLE
+* OUTDATED_PENDING
+
 Show the target regions and organizational units.
 
 ```bash
@@ -100,6 +127,12 @@ map(select(.Status == "ACTIVE"))
 | less
 ```
 
+Columns:
+
+* StackSetName
+* Regions
+* OrganizationalUnitIds
+
 ## TODO
 
 jq lacks date arithmetic, so it's difficult to compute these:
@@ -108,7 +141,7 @@ jq lacks date arithmetic, so it's difficult to compute these:
 * Duration of last operation
 * Numer of operations per day (SERVICE_MANAGED stack sets operate automatically)
 
-The SERVICE_MANAGED permission model is not supported in delegated administrator accounts.
+The SERVICE_MANAGED permission model is not supported in delegated administrator accounts. The tool is hard-coded to use the SELF permission model, so it currently works only in the organization management account.
 
 Transform the JSON into a dimensional model with these dimensions (not exhaustive):
 

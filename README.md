@@ -159,3 +159,7 @@ Merges the complete description into each summary result given by DescribeStackS
 The Instance key is populated for each stack set by the Summaries list of ListStackInstances.
 
 The Operations key is populated for each stack set by the Summaries list of the ListStackSetOperations.
+
+## Other Tools
+
+[rain](https://github.com/aws-cloudformation/rain) now has a `stackset` command for operating on stack sets. I haven't tried it yet, but it may complement this tool.
